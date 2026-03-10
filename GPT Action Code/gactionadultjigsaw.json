@@ -1,0 +1,74 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AdultJigsaw Live API",
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://adultjigsaw.com"
+    }
+  ],
+  "paths": {
+    "/_functions/products": {
+      "get": {
+        "operationId": "getProducts",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 200
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of products"
+          }
+        }
+      }
+    },
+    "/_functions/blogs": {
+      "get": {
+        "operationId": "getBlogs",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of blog posts"
+          }
+        }
+      }
+    },
+    "/_functions/blogText": {
+      "get": {
+        "operationId": "getBlogText",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Extracted blog text content"
+          }
+        }
+      }
+    }
+  }
+}
